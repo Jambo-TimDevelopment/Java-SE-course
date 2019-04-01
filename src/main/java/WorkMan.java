@@ -1,7 +1,7 @@
 public class  WorkMan extends Person{
     //Конструктор 1.0
-    public WorkMan(String f, String s, String t, String g, int a, int e){
-        super(f, s, t, g, a, e);
+    public WorkMan(String f, String s, String t, String g, int a, int e, String sum){
+        super(f, s, t, g, a, e, sum);
     }
 
     //Конструктор 2.0 (Само Своершенство)
@@ -25,6 +25,7 @@ public class  WorkMan extends Person{
     @Override
     public String toString() {
         return "Имя: " + getFirstName() + "  Фамилия: " + getSecondName() +
-                "  Технологии: " + getTechnologies() + "  Возраст: " + getAge() + "  Стаж: " + getExperince();
+                "  Технологии: " + getTechnologies() + "  Возраст: " + getAge() + "  Стаж: " + getExperince() +
+                "\n" + getSummary();
     }
 }

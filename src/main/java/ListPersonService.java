@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,6 +15,7 @@ public class ListPersonService {
         String secondName = new String();
         String firstName = new String();
         String gender = new String();
+        String summary = new String();
         int age = 0;
         int experince = 0;
         int flag = 0;
@@ -39,9 +38,11 @@ public class ListPersonService {
             }else if(arPersons[i].equals("experince")){
                 experince = Integer.parseInt(arPersons[i + 1]);
                 flag++;
+            }else if(arPersons[i].equals("summary")){
+                summary = arPersons[i+1];
             }
             if(flag == 6) {
-                WorkMan workMan = new WorkMan(firstName, secondName, technologies, gender, age, experince);
+                WorkMan workMan = new WorkMan(firstName, secondName, technologies, gender, age, experince, summary);
                 listPerson.add(workMan);
                 flag = 0;
             }
@@ -60,12 +61,12 @@ public class ListPersonService {
         return list;
     }
 
-    //Список команд (будет дополнен позже)
+    //Список команд
     public void searchName(String firstName, String secondName){
         boolean flag = false;
         for(WorkMan person: listPerson){
             if(person.boolSearchName(firstName, secondName)){
-                System.out.println(person.toString());
+                System.out.println(person.toString() + "\n" + person.getSummary());
                 flag = true;
             }
         }
@@ -103,6 +104,4 @@ public class ListPersonService {
             System.out.println("Такой человек отсутствует");
         }
     }
-
-    //public void combinedSearch()
 }

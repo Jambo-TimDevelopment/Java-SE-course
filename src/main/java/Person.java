@@ -1,7 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 public abstract class Person implements Comparable<Person>{
     private String firstName;
     private String secondName;
@@ -9,6 +5,7 @@ public abstract class Person implements Comparable<Person>{
     private int age;
     private int experince;
     private String gender;
+    private String summary;
 
     //Конструкторы
     public Person(){
@@ -18,9 +15,10 @@ public abstract class Person implements Comparable<Person>{
         this.setAge(0);
         this.setSecondName(null);
         this.setGender(null);
+        this.setSummary(null);
     }
 
-    public Person(String f, String s, String t, String g, int a, int e){ //Конструктор
+    public Person(String f, String s, String t, String g, int a, int e, String sum){ //Конструктор
         this.firstName = f;
         this.secondName = s;
         this.technologies = t;
@@ -28,6 +26,7 @@ public abstract class Person implements Comparable<Person>{
         this.experince = e;
         Gender gender = new Gender(g);
         this.gender = gender.getGender();
+        this.summary = sum;
     }
 
     //Геттеры
@@ -43,13 +42,15 @@ public abstract class Person implements Comparable<Person>{
         return age;
     }
 
-    public int getExperince() {
+    public double getExperince() {
         return experince;
     }
 
     public String getTechnologies(){
         return technologies;
     }
+
+    public String getSummary(){return summary;}
 
     //Сеттеры
     public void setFirstName(String firstName) {
@@ -75,6 +76,8 @@ public abstract class Person implements Comparable<Person>{
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public void setSummary(String summary){this.summary = summary;}
 
     @Override
     public boolean equals(Object other) {
